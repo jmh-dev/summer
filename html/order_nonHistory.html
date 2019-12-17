@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>Summer Palace Restaurant</title>
+	<link rel="stylesheet" href="../resources/css/common.css">
+	<script src="../resources/js/jquery-3.4.1.min.js"></script>
+	<script src="../resources/js/jquery-ui.js"></script>
+	<script src="../resources/js/style.js"></script>
+</head>
+<body class="mainType">
+<div id="skipNav"><a href="#contents">Go to contents</a></div>
+<article id="summerPalaceWrap">
+	<!-- go to app -->
+	<div class="goto_App">
+		<p class="txt">Save your order information,<br/><span>you can order immediately</span></p>
+		<p class="btn_right">
+			<a href="#none" class="btn_view_app">View in app</a>
+			<button class="btn_banner_close">banner_close</button>
+		</p>
+	</div>
+	<!-- //go to app -->
+
+	<!-- header -->
+	<header id="sp_header">
+		<button class="btn_back">go to back</button>
+		<h1>
+			<a href="./index.html">
+				<span class="enTxt">SUMMER PALACE</span>
+				<span class="kochiTxt">이화원<em>颐和园</em></span>
+			</a>
+		</h1>
+		<button class="btn_user_menu">left_menu</button>
+	</header>
+
+	<div class="hid_user_menu">
+		<h2>NON-Member Info</h2>
+		<button class="btn_menu_close">btn_menu_close</button>
+
+		<ul class="right_menu">
+			<li>
+				<a href="order_nonHistory.html">Order History</a>
+			</li>
+		</ul>
+	</div>
+	<!-- // header -->
+
+	<!-- contents -->
+	<section id="contents">
+		<h2>View Details</h2>
+
+		<div class="order_number_all">
+			<dl>
+				<dt>Order Number</dt>
+				<dd>12345678910</dd>
+			</dl>
+		</div>
+
+		<div class="order_history">
+			<dl class="progress_box">
+				<dt>Progress</dt>
+				<dd>Order Complete</dd>
+			</dl>
+			<ul class="order_fix_list">
+				<li>
+					<dl class="menu_name">
+						<dt>
+							짜장면<span>餐点餐点餐点餐点</span>
+						</dt>
+						<dd class="enTxt">
+							JJA JANG MIAN(Sigmature Dish)
+						</dd>
+						<dd class="total_num">1</dd>
+						<dd class="menu_info_txt">
+							<span class="size">Medium</span><span class="price">80</span>
+						</dd>
+					</dl>
+					<p class="img">
+						<img src="../resources/images/common/@img.png" alt="order img"/>
+					</p>
+				</li>
+				<li>
+					<dl class="menu_name">
+						<dt>
+							짜장면<span>餐点餐点餐点餐点</span>
+						</dt>
+						<dd class="enTxt">
+							Stir-fried noodles with seafood and Chinese bean sauce
+						</dd>
+						<dd class="total_num">2</dd>
+						<dd class="menu_info_txt">
+							<span class="size">Medium</span><span class="price">80</span>
+						</dd>
+					</dl>
+					<p class="img">
+						<img src="../resources/images/common/@img.png" alt="order img"/>
+					</p>
+				</li>
+			</ul>
+
+			<ul class="user_write_info">
+				<li>No. 9 & 11, Jalan Nipah, Off Jalan Ampang,
+					55000 Kuala Lumpur, Malaysia</li>
+				<li>000-0000-0000</li>
+			</ul>
+
+			<div class="menu_total_box marg0">
+				<dl>
+					<dt>Total order amount</dt>
+					<dd>100</dd>
+				</dl>
+			</div>
+		</div>
+
+
+	</section>
+	<!-- //contents -->
+</article>
+</body>
+</html>

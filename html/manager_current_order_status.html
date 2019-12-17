@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>Summer Palace Restaurant</title>
+	<link rel="stylesheet" href="../resources/css/common.css">
+	<script src="../resources/js/jquery-3.4.1.min.js"></script>
+	<script src="../resources/js/jquery-ui.js"></script>
+	<script src="../resources/js/style.js"></script>
+	<script>
+		$(function(){
+			$(".btn_unchecked").click(function(){
+				$(this).toggleClass("on")
+			})
+		})
+	</script>
+</head>
+<body class="mainType">
+<div id="skipNav"><a href="#contents">Go to contents</a></div>
+<article id="summerPalaceWrap" class="noneBanner">
+	<!-- header -->
+	<header id="sp_header" class="manager">
+		<h1>
+			<a href="./manager_current_order_status.html">
+				<span class="enTxt">MANAGER</span>
+				<span class="kochiTxt">이화원<em>颐和园</em></span>
+			</a>
+		</h1>
+		<button class="btn_user_menu">right_menu</button>
+	</header>
+	<!-- // header -->
+
+	<!-- hidden menu -->
+	<div class="hid_user_menu">
+		<h2>Manager Menu</h2>
+		<button class="btn_menu_close">btn_menu_close</button>
+
+		<ul class="right_menu">
+			<li>
+				<a href="manager_current_order_status.html">Current Order Status</a>
+			</li>
+			<li>
+				<a href="manager_monthly_statistics.html">Monthly Statistics</a>
+			</li>
+		</ul>
+	</div>
+
+	<!-- contents -->
+	<section id="contents">
+		<h2>Current Order Status</h2>
+
+		<div class="co_status">
+			<ul>
+				<li class="on">
+					<span class="number">6</span>
+					<span class="title">Remaining orders</span>
+				</li>
+				<li class="on">
+					<span class="number">6</span>
+					<span class="title">Cooking</span>
+				</li>
+				<li class="on">
+					<span class="number">6</span>
+					<span class="title">On delivery</span>
+				</li>
+				<li class="complete">
+					<span class="number end">6</span>
+					<span class="title">Complete</span>
+				</li>
+			</ul>
+		</div>
+
+		<h2>Customer Order List</h2>
+
+		<!-- order list 01-->
+		<div class="date_all">
+			<p class="date lately">2019.12.12</p>
+		</div>
+		<div class="order_number_all line">
+			<dl>
+				<dt>Order Number</dt>
+				<dd>12345678910</dd>
+			</dl>
+		</div>
+
+		<!-- processing_btn_check -->
+		<div class="processing_btn_all">
+			<button class="btn_unchecked on">Cooking</button>
+				<span class="ico_arrow">-></span>
+			<button class="btn_unchecked">On delivery</button>
+				<span class="ico_arrow">-></span>
+			<button class="btn_unchecked">Complete</button>
+		</div>
+		<!-- //processing_btn_check -->
+
+		<div class="order_history prev">
+			<table>
+				<colgroup>
+					<col width="*"/>
+					<col width="30"/>
+					<col width="120"/>
+				</colgroup>
+				<tbody>
+				<tr>
+					<td>
+						짜장면<span>餐点餐点餐点餐点</span>
+						<p class="enTxt">JJA JANG MIAN(Sigmature Dish)</p>
+					</td>
+					<td class="total_num">1</td>
+					<td class="menu_info">Medium 20</td>
+				</tr>
+				<tr>
+					<td>
+						짜장면<span>餐点餐点餐点餐点</span>
+						<p class="enTxt">JJA JANG MIAN(Sigmature Dish)</p>
+					</td>
+					<td class="total_num">1</td>
+					<td class="menu_info">Medium 20</td>
+				</tr>
+				</tbody>
+			</table>
+
+			<div class="menu_total_box">
+				<dl>
+					<dt>Total order amount</dt>
+					<dd>100</dd>
+				</dl>
+			</div>
+		</div>
+
+		<!-- order list 02-->
+		<div class="date_all mgt20">
+			<p class="date">2019.12.12</p>
+		</div>
+		<div class="order_number_all line">
+			<dl>
+				<dt>ID</dt>
+				<dd>starpowder</dd>
+			</dl>
+		</div>
+
+		<!-- processing_btn_check -->
+		<div class="processing_btn_all">
+			<button class="btn_unchecked on">Cooking</button>
+			<span class="ico_arrow">-></span>
+			<button class="btn_unchecked">On delivery</button>
+			<span class="ico_arrow">-></span>
+			<button class="btn_unchecked">Complete</button>
+		</div>
+		<!-- //processing_btn_check -->
+
+		<div class="order_history prev">
+			<table>
+				<colgroup>
+					<col width="*"/>
+					<col width="30"/>
+					<col width="120"/>
+				</colgroup>
+				<tbody>
+				<tr>
+					<td>
+						짜장면<span>餐点餐点餐点餐点</span>
+						<p class="enTxt">JJA JANG MIAN(Sigmature Dish)</p>
+					</td>
+					<td class="total_num">1</td>
+					<td class="menu_info">Medium 20</td>
+				</tr>
+				<tr>
+					<td>
+						짜장면<span>餐点餐点餐点餐点</span>
+						<p class="enTxt">JJA JANG MIAN(Sigmature Dish)</p>
+					</td>
+					<td class="total_num">1</td>
+					<td class="menu_info">Medium 20</td>
+				</tr>
+				</tbody>
+			</table>
+
+			<ul class="user_write_info">
+				<li>No. 9 &amp; 11, Jalan Nipah, Off Jalan Ampang,
+					55000 Kuala Lumpur, Malaysia</li>
+				<li>000-0000-0000</li>
+			</ul>
+
+			<div class="menu_total_box">
+				<dl>
+					<dt>Total order amount</dt>
+					<dd>100</dd>
+				</dl>
+			</div>
+
+		</div>
+
+		<!-- order list 03-->
+		<div class="date_all mgt20">
+			<p class="date">2019.12.12</p>
+		</div>
+		<div class="order_number_all line">
+			<dl>
+				<dt>Order Number</dt>
+				<dd>12345678910</dd>
+			</dl>
+		</div>
+
+		<!-- processing_btn_check -->
+		<div class="processing_btn_all">
+			<button class="btn_unchecked on">Cooking</button>
+			<span class="ico_arrow">-></span>
+			<button class="btn_unchecked">On delivery</button>
+			<span class="ico_arrow">-></span>
+			<button class="btn_unchecked">Complete</button>
+		</div>
+		<!-- //processing_btn_check -->
+
+		<div class="order_history prev">
+			<table>
+				<colgroup>
+					<col width="*"/>
+					<col width="30"/>
+					<col width="120"/>
+				</colgroup>
+				<tbody>
+				<tr>
+					<td>
+						짜장면<span>餐点餐点餐点餐点</span>
+						<p class="enTxt">JJA JANG MIAN(Sigmature Dish)</p>
+					</td>
+					<td class="total_num">1</td>
+					<td class="menu_info">Medium 20</td>
+				</tr>
+				<tr>
+					<td>
+						짜장면<span>餐点餐点餐点餐点</span>
+						<p class="enTxt">JJA JANG MIAN(Sigmature Dish)</p>
+					</td>
+					<td class="total_num">1</td>
+					<td class="menu_info">Medium 20</td>
+				</tr>
+				</tbody>
+			</table>
+
+			<ul class="user_write_info">
+				<li>No. 9 &amp; 11, Jalan Nipah, Off Jalan Ampang,
+					55000 Kuala Lumpur, Malaysia</li>
+				<li>000-0000-0000</li>
+			</ul>
+
+			<div class="menu_total_box">
+				<dl>
+					<dt>Total order amount</dt>
+					<dd>100</dd>
+				</dl>
+			</div>
+		</div>
+		<!-- //order list -->
+
+	</section>
+	<!-- //contents -->
+</article>
+</body>
+</html>

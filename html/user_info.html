@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>Summer Palace Restaurant</title>
+	<link rel="stylesheet" href="../resources/css/common.css">
+	<script src="../resources/js/jquery-3.4.1.min.js"></script>
+	<script src="../resources/js/jquery-ui.js"></script>
+	<script src="../resources/js/style.js"></script>
+</head>
+<body class="mainType">
+<div id="skipNav"><a href="#contents">Go to contents</a></div>
+<article id="summerPalaceWrap">
+	<!-- go to app -->
+	<div class="goto_App">
+		<p class="txt">Save your order information,<br/><span>you can order immediately</span></p>
+		<p class="btn_right">
+			<a href="#none" class="btn_view_app">View in app</a>
+			<button class="btn_banner_close">banner_close</button>
+		</p>
+	</div>
+	<!-- //go to app -->
+
+	<!-- header -->
+	<header id="sp_header">
+		<h1>
+			<a href="./index.html">
+				<span class="enTxt">SUMMER PALACE</span>
+				<span class="kochiTxt">이화원<em>颐和园</em></span>
+			</a>
+		</h1>
+		<button class="btn_user_menu">left_menu</button>
+	</header>
+
+	<div class="hid_user_menu">
+		<h2>Member Info</h2>
+		<button class="btn_menu_close">btn_menu_close</button>
+
+		<ul class="right_menu">
+			<li>
+				<a href="orderPreviousHistory.html">Order History</a>
+			</li>
+			<li>
+				<a href="user_info.html">Member Info</a>
+			</li>
+		</ul>
+	</div>
+	<!-- // header -->
+
+	<!-- contents -->
+	<section class="else_contents">
+		<h2 class="hidden">else_contents</h2>
+		<article class="else_all">
+			<h3 class="marg0">Member Info</h3>
+			<dl class="info_type">
+				<dt>Id</dt>
+				<dd>starpowder</dd>
+			</dl>
+			<dl class="info_type">
+				<dt>Password</dt>
+				<dd>123******</dd>
+			</dl>
+			<dl class="info_type">
+				<dt>Phone number</dt>
+				<dd><a href="tel:000-0000-0000">000-0000-0000</a></dd>
+			</dl>
+			<dl class="info_type zip">
+				<dt>My Address</dt>
+				<dd><button class="btn_add_address">Add Address</button></dd>
+			</dl>
+
+			<ul class="address_list">
+				<li>
+					<input type="radio" id="zip01" name="zipall"/>
+					<label for="zip01">
+						No. 9 & 11, Jalan Nipah, Off Jalan Ampang,
+						55000 Kuala Lumpur, Malaysia
+					</label>
+				</li>
+				<li>
+					<input type="radio" id="zip02" name="zipall"/>
+					<label for="zip02">
+						No. 9 & 11, Jalan Nipah, Off Jalan Ampang,
+						55000 Kuala Lumpur, Malaysia
+					</label>
+				</li>
+			</ul>
+
+			<div class="btn_wrap">
+				<a href="#none" class="btn_r_login">Member  info edit</a>
+			</div>
+		</article>
+	</section>
+	<!-- //contents -->
+</article>
+</body>
+</html>

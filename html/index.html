@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>Summer Palace Restaurant</title>
+	<link rel="stylesheet" href="../resources/css/common.css">
+	<script src="../resources/js/jquery-3.4.1.min.js"></script>
+	<script src="../resources/js/jquery-ui.js"></script>
+	<script src="../resources/js/style.js"></script>
+	<script>
+		$(function(){
+			tabCommon(); //tab
+			allMenuToggle(); //allMenu
+		})
+	</script>
+</head>
+<body class="mainType">
+<div id="skipNav"><a href="#contents">Go to contents</a></div>
+<article id="summerPalaceWrap">
+	<!-- go to app -->
+	<div class="goto_App">
+		<p class="txt">Save your order information,<br/><span>you can order immediately</span></p>
+		<p class="btn_right">
+			<a href="#none" class="btn_view_app">View in app</a>
+			<button class="btn_banner_close">banner_close</button>
+		</p>
+	</div>
+	<!-- //go to app -->
+
+	<!-- header -->
+	<header id="sp_header">
+		<h1>
+			<a href="./index.html">
+				<span class="enTxt">SUMMER PALACE</span>
+				<span class="kochiTxt">이화원<em>颐和园</em></span>
+			</a>
+		</h1>
+		<button class="btn_user_menu">left_menu</button>
+	</header>
+	<!-- // header -->
+
+	<!-- hidden menu -->
+	<div class="hid_user_menu">
+		<h2>Member Info</h2>
+		<button class="btn_menu_close">btn_menu_close</button>
+
+		<ul class="right_menu">
+			<li>
+				<a href="orderHistory.html">Order History</a>
+			</li>
+			<li>
+				<a href="user_info.html">Member Info</a>
+			</li>
+		</ul>
+	</div>
+
+	<!-- contents -->
+	<section id="contents">
+		<h2 class="hidden">main_content</h2>
+		<!-- tab menu area -->
+		<div class="tab_menu">
+			<ul>
+				<li class="active">
+					<a href="#none"><b>Recommended</b> Menu</a>
+				</li>
+				<li>
+					<a href="#none"><b>All</b> Menu</a>
+				</li>
+			</ul>
+		</div>
+		<!-- //tab menu area -->
+
+		<!-- tab area -->
+		<section class="tab_contents">
+			<!-- tab Recommended menu -->
+			<div title="Recommended Menu">
+				<h3 class="hidden">Recommended Menu</h3>
+				<div class="recomm_menu">
+					<ul>
+						<li>
+							<a href="detail.html">
+								<span class="number">1.</span>
+								<p class="kochi_name">짜장면<span>颐和园</span></p>
+								<p class="en_name">JJA JANG MIAN (Signature Dish)</p>
+								<p class="info">
+									<span class="size">Medium</span>
+									<span class="price">20</span>
+								</p>
+								<div class="img">
+									<img src="../resources/images/common/@img.png" alt="Food image" />
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="detail.html">
+								<span class="number">4.</span>
+								<p class="kochi_name">짜장면<span>颐和园</span></p>
+								<p class="en_name">Stir-fried noodles with Vegetables  and Chinese bean sauce</p>
+								<p class="info">
+									<span class="size">Medium</span>
+									<span class="price">20</span>
+								</p>
+								<div class="img">
+									<img src="../resources/images/common/@img.png" alt="Food image" />
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="detail.html">
+								<span class="number">12.</span>
+								<p class="kochi_name">짜장면<span>颐和园</span></p>
+								<p class="en_name">JJA JANG MIAN (Signature Dish)</p>
+								<p class="info">
+									<span class="size">Medium</span>
+									<span class="price">20</span>
+								</p>
+								<div class="img">
+									<img src="../resources/images/common/@img.png" alt="Food image" />
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="detail.html">
+								<span class="number">26.</span>
+								<p class="kochi_name">짜장면<span>颐和园</span></p>
+								<p class="en_name">JJA JANG MIAN (Signature Dish)</p>
+								<p class="info">
+									<span class="size">Medium</span>
+									<span class="price">20</span>
+								</p>
+								<div class="img">
+									<img src="../resources/images/common/@img.png" alt="Food image" />
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="detail.html">
+								<span class="number">12.</span>
+								<p class="kochi_name">짜장면<span>颐和园</span></p>
+								<p class="en_name">JJA JANG MIAN (Signature Dish)</p>
+								<p class="info">
+									<span class="size">Medium</span>
+									<span class="price">20</span>
+								</p>
+								<div class="img">
+									<img src="../resources/images/common/@img.png" alt="Food image" />
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="detail.html">
+								<span class="number">26.</span>
+								<p class="kochi_name">짜장면<span>颐和园</span></p>
+								<p class="en_name">JJA JANG MIAN (Signature Dish)</p>
+								<p class="info">
+									<span class="size">Medium</span>
+									<span class="price">20</span>
+								</p>
+								<div class="img">
+									<img src="../resources/images/common/@img.png" alt="Food image" />
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- //tab Recommended menu -->
+
+			<!-- tab All menu -->
+			<div title="All Menu">
+				<h3 class="hidden">All Menu</h3>
+				<div class="toggle_menu">
+					<h4 class="active"><span>Meals</span>식사류<em>颐和园</em></h4>
+					<div class="detail_menu_list" style="display:block">
+						<ul>
+							<li>
+								<a href="detail.html">
+									<span class="number">1.</span>
+									<p class="en_name">JJA JANG MIAN (Signature Dish)</p>
+									<p class="kochi_name">짜장면<span>颐和园</span></p>
+									<p class="info">
+										<span class="size">Medium</span>
+										<span class="price">20</span>
+									</p>
+								</a>
+							</li>
+							<li>
+								<a href="detail.html">
+									<span class="number">12.</span>
+									<p class="en_name">Stir-fried noodles with Vegetables  and Chinese bean sauce</p>
+									<p class="kochi_name">짜장면<span>颐和园</span></p>
+									<p class="info">
+										<span class="size">Medium</span>
+										<span class="price">20</span>
+									</p>
+								</a>
+							</li>
+							<li>
+								<a href="detail.html">
+									<span class="number">1.</span>
+									<p class="en_name">JJA JANG MIAN (Signature Dish)</p>
+									<p class="kochi_name">짜장면<span>颐和园</span></p>
+									<p class="info">
+										<span class="size">Medium</span>
+										<span class="price">20</span>
+									</p>
+								</a>
+							</li>
+							<li>
+								<a href="detail.html">
+									<span class="number">1.</span>
+									<p class="en_name">JJA JANG MIAN (Signature Dish)</p>
+									<p class="kochi_name">짜장면<span>颐和园</span></p>
+									<p class="info">
+										<span class="size">Medium</span>
+										<span class="price">20</span>
+									</p>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<h4><span>Dishes</span>요리류<em>颐和园</em></h4>
+					<div class="detail_menu_list">
+						<ul>
+							<li>
+								<a href="detail.html">
+									<span class="number">1.</span>
+									<p class="en_name">JJA JANG MIAN (Signature Dish)</p>
+									<p class="kochi_name">짜장면<span>颐和园</span></p>
+									<p class="info">
+										<span class="size">Medium</span>
+										<span class="price">20</span>
+									</p>
+								</a>
+							</li>
+							<li>
+								<a href="detail.html">
+									<span class="number">1.</span>
+									<p class="en_name">JJA JANG MIAN (Signature Dish)</p>
+									<p class="kochi_name">짜장면<span>颐和园</span></p>
+									<p class="info">
+										<span class="size">Medium</span>
+										<span class="price">20</span>
+									</p>
+								</a>
+							</li>
+							<li>
+								<a href="detail.html">
+									<span class="number">1.</span>
+									<p class="en_name">JJA JANG MIAN (Signature Dish)</p>
+									<p class="kochi_name">짜장면<span>颐和园</span></p>
+									<p class="info">
+										<span class="size">Medium</span>
+										<span class="price">20</span>
+									</p>
+								</a>
+							</li>
+							<li>
+								<a href="detail.html">
+									<span class="number">1.</span>
+									<p class="en_name">JJA JANG MIAN (Signature Dish)</p>
+									<p class="kochi_name">짜장면<span>颐和园</span></p>
+									<p class="info">
+										<span class="size">Medium</span>
+										<span class="price">20</span>
+									</p>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<h4><span>Drinks</span>주류<em>颐和园</em></h4>
+					<div class="detail_menu_list">
+						<ul>
+							<li>
+								<a href="detail.html">
+									<span class="number">1.</span>
+									<p class="en_name">JJA JANG MIAN (Signature Dish)</p>
+									<p class="kochi_name">짜장면<span>颐和园</span></p>
+									<p class="info">
+										<span class="size">Medium</span>
+										<span class="price">20</span>
+									</p>
+								</a>
+							</li>
+							<li>
+								<a href="detail.html">
+									<span class="number">1.</span>
+									<p class="en_name">JJA JANG MIAN (Signature Dish)</p>
+									<p class="kochi_name">짜장면<span>颐和园</span></p>
+									<p class="info">
+										<span class="size">Medium</span>
+										<span class="price">20</span>
+									</p>
+								</a>
+							</li>
+							<li>
+								<a href="detail.html">
+									<span class="number">1.</span>
+									<p class="en_name">JJA JANG MIAN (Signature Dish)</p>
+									<p class="kochi_name">짜장면<span>颐和园</span></p>
+									<p class="info">
+										<span class="size">Medium</span>
+										<span class="price">20</span>
+									</p>
+								</a>
+							</li>
+							<li>
+								<a href="detail.html">
+									<span class="number">1.</span>
+									<p class="en_name">JJA JANG MIAN (Signature Dish)</p>
+									<p class="kochi_name">짜장면<span>颐和园</span></p>
+									<p class="info">
+										<span class="size">Medium</span>
+										<span class="price">20</span>
+									</p>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- //tab All menu -->
+		</section>
+		<!-- //tab area -->
+	</section>
+	<!-- //contents -->
+
+	<!-- 1ea : type_01 , 2ea : type_02 -->
+	<div class="btn_bottom_fix type02">
+		<a href="tel:02-0000-0000" class="btn_tel_order">Phone Order</a>
+		<a href="#none" class="btn_touch_order" onclick="alert('Please select food to order')">Touch Order</a>
+	</div>
+</article>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>Summer Palace Restaurant</title>
+	<link rel="stylesheet" href="../resources/css/common.css">
+	<script src="../resources/js/jquery-3.4.1.min.js"></script>
+	<script src="../resources/js/jquery-ui.js"></script>
+	<script src="../resources/js/style.js"></script>
+</head>
+<body class="mainType">
+<div id="skipNav"><a href="#contents">Go to contents</a></div>
+<article id="summerPalaceWrap">
+	<!-- go to app -->
+	<div class="goto_App">
+		<p class="txt">Save your order information,<br/><span>you can order immediately</span></p>
+		<p class="btn_right">
+			<a href="#none" class="btn_view_app">View in app</a>
+			<button class="btn_banner_close">banner_close</button>
+		</p>
+	</div>
+	<!-- //go to app -->
+
+	<!-- header -->
+	<header id="sp_header">
+		<h1>
+			<a href="./index.html">
+				<span class="enTxt">SUMMER PALACE</span>
+				<span class="kochiTxt">이화원<em>颐和园</em></span>
+			</a>
+		</h1>
+		<button class="btn_user_menu">left_menu</button>
+	</header>
+
+	<div class="hid_user_menu">
+		<h2>NON-Member Info</h2>
+		<button class="btn_menu_close">btn_menu_close</button>
+
+		<ul class="right_menu">
+			<li>
+				<a href="order_nonHistory.html">Order History</a>
+			</li>
+
+		</ul>
+	</div>
+	<!-- // header -->
+
+	<!-- contents -->
+	<section class="else_contents">
+		<h2 class="hidden">else_contents</h2>
+		<article class="else_all">
+			<h3>Non-member View Order History</h3>
+			<dl>
+				<dt>Order number inquiry</dt>
+				<dd><input type="text" placeholder="Please enter your order number" /></dd>
+			</dl>
+
+			<div class="btn_wrap">
+				<a href="order_nonHistory.html" class="btn_r_login">Order History Inquiry</a>
+			</div>
+		</article>
+	</section>
+	<!-- //contents -->
+</article>
+</body>
+</html>

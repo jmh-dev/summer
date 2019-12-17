@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width" />
+<title>작업현황판 | 이화원 </title>
+<style type="text/css">
+	* {margin:0; padding:0;}
+	html {overflow-y:scroll;}
+	body {background:#fff; min-width:1024px; color:#000; font:12px/1.4 'Malgun Gothic', Tahoma, Sans-serif;}
+	a {color:#27e; text-decoration:none;}
+	a:focus, a:hover, a:active {text-decoration:underline;}
+	.guide-header {width:100%; position:relative; background:#ff3636; box-shadow:0 2px 5px 0 #999; font:12px/1.5 'Malgun Gothic', Tahoma, Sans-serif;}
+	.guide-header h1 {padding:.2em; color:#f2f2f2; font-size:24px;}
+	.guide-header h1 strong {font-size:16px;}
+	.guide-header .nav {list-style:none; background:#588f47; border-top:1px solid #164577; padding:.5em .5em .4em; color:#f9f9f9; font-weight:bold; font-size:16px;}
+	.guide-header .nav li {display:inline-block; margin-right:.5em; color:#f2f2f2;}
+	.guide-header .nav li a {color:#f2f2f2;}
+	.guide-header .nav li .on {color:#fff !important; text-shadow:#333 1px 1px 2px; text-decoration:underline;}
+	.guide-header .nav li strong {font-size:120%;}
+	.guide-header .nav li:before {content:'•'; font-weight:normal; font-size:14px; margin-right:.7em;}
+	.guide-header .nav li:first-child:before {content:none !important; margin:0 !important;}
+	.guide-header .nav.nav-subtype {background:#2d5785; font-size:14px;}
+	.guide-header .nav.nav-subtype li:before {content:'|';}
+	.guide-header .navgroup {position:relative;}
+	.guide-header .nav-r {position:absolute; right:0; bottom:8px; margin-top:0; list-style:none; font-weight:bold; font-size:14px;}
+	.guide-header .nav-r li {display:inline; margin-right:0.5em;}
+	.guide-header .nav-r li:before {content:'|'; margin-right:10px; color:#f2f2f2; font-weight:normal;}
+	.guide-header .nav-r li:first-child:before {display:none;}
+	.guide-header .nav-r li a {color:#f2f2f2;}
+	.guide-header .nav-r li a:before {content:'→';}
+	.rule {background:#eeeff3; margin:0 0 2em; padding:1em; color:#4d4d4d;}
+	.rule dt {margin-bottom:.3em; font-size:13px; font-weight:bold;}
+	.rule dd {padding-left:.5em; line-height:1.8;}
+	.rule dd ul {list-style-type:square; margin-left:1.2em;}
+	.title-topsection {margin:1em .8em .3em; font-size:24px; color:#ff3636;}
+	.title-topsection:before {content:'[';}
+	.title-topsection:after {content:']';}
+	.total {margin:1em 1em .5em; padding-left:.3em; font-weight:bold; font-size:14px;}
+	.total .per {font-size:12px;}
+	.guide-body {padding-bottom:1em;}
+	.section {margin:0 1em;}
+	.section + .section {margin-bottom:1em;}
+	.section .title {margin:0; padding:.6em; background:#2d5785; color:#fff; font-weight:bold; font-size:14px; position:relative; margin-top:-1px; *zoom:1; cursor:pointer;}
+	.section .title-toggle {margin:0; padding:.6em; background:#d9dce3; position:relative; *zoom:1;}
+	.section .title-toggle .togglebtn {padding:2px 5px; margin:0; background:#2d5785; border:0; border-radius:3px; color:#fff; font:bold 12px/1.5 'Malgun Gothic', Tahoma, Sans-serif; cursor:pointer;}
+	.section .title.title-depth2 {background:#8c959d; border:0; margin-top:0; cursor:default;}
+	.section table {width:100%; border-collapse:collapse; border-spacing:0; border:0;}
+	.section table caption {display:none;}
+	.section table th, table td {padding:0.8em; border:1px solid #ccc;}
+	.section table th {color:#333; background:#eeeff3; font-size:11px; text-align:center;}
+	.section table td {text-align:left;}
+	.section table td.tit {color:#333; font-weight:bold;}
+	.section table td.file {color:#d4d4d4 !important;}
+	.section table td.date {text-align:left; font-style:italic; white-space:nowrap;}
+	.section table td.date del {display:block; color:#aaa !important;}
+	.section table td.stat {text-align:center;}
+	.section table td.desc, .section table td.note, .section table td.history {font-style:italic; color:#666;}
+	.section table td.author {text-align:center; white-space:nowrap;}
+	.section table td ul {list-style:none; margin:0; padding:0; font-style:italic;}
+	.section table td ul li {margin:2px 0;}
+	.section table tr.tr-bgtype2 td {background:#f4f4f4; color:#666;}
+	.section table tr:hover td {background:#eeeff3;}
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="../resources/js/style.js"></script>
+<script type="text/javascript">
+	jQuery.fn.stat = function (options) {
+		var settings = jQuery.extend({
+				total: '.total',
+				toggleBtn: '.togglebtn',
+				title: 'h2.title',
+				content: 'div.content',
+				files: 'tbody tr:not(.tr-bgtype2)',
+				stat: 'td.stat',
+				completed: '●',
+				index: 0,
+				openAll: true
+			}, options),
+			all_sections = this;
+
+		return this.each(function () {
+			var self = this,
+				$self = $(self),
+				title_text = [],
+				completed = 0;
+			self.section_title = $(settings.title, $self);
+			self.content = $(settings.content, $self);
+			self.files = $(settings.files, $self);
+			self.files.each(function () {
+				var stat = $(settings.stat, this);
+				stat.each(function () {
+					var text = $(this).text();
+					if (text && (text === settings.completed)) {
+						completed++;
+					}
+				});
+			});
+			title_text = [self.section_title.text(), ' (',completed,'/',self.files.length,')'];
+			self.section_title.text(title_text.join(''));
+			self.section_title.click(function() {
+				self.content.slideToggle('fast');
+			});
+			$(settings.toggleBtn).text('전체닫기').toggle(function() {
+				$(settings.toggleBtn).text('전체열기');
+				$(settings.content).hide();
+			}, function() {
+				$(settings.toggleBtn).text('전체닫기');
+				$(settings.content).show();
+			});
+
+			//total
+			var completedAll = 0;
+			$(settings.stat).each(function () {
+				var text = $(this).text();
+				if (text && (text == settings.completed)) {
+					completedAll++;
+				}
+			});
+			$(settings.total).html('Total : '+completedAll+'/'+$(settings.files).length+'pages <span class="per">(진행율 '+Math.round(completedAll/$(settings.files).length*100)+'%)</span>');
+
+		});
+	};
+
+	$(document).ready(function() {
+		$('div.section').stat();
+	});
+</script>
+</head>
+<body>
+<div class="guide-header">
+	<h1>:: 이화원<strong>&gt; FILE LIST</strong></h1>
+</div>
+
+<div class="guide-body">
+	<p class="total"></p>
+	<div class="section">
+		<div class="title-toggle"><button type="button" class="togglebtn">전체닫기</button></div>
+	</div>
+
+	<!-- 대표 -->
+	<div class="section">
+		<h2 class="title" style="background:#ff3636;"></h2>
+		<div class="content">
+
+			<table border="1">
+				<thead>
+				<tr>
+					<th scope="col" style="width:15%;">1depth</th>
+					<th scope="col" style="width:12%;">2depth</th>
+					<th scope="col" style="width:11%;">3depth</th>
+					<th scope="col" style="width:8%;">path</th>
+					<th scope="col" style="width:10%;">file</th>
+					<th scope="col" style="width:4%;" title="△ :대기 / ○ :부분완료 / ● :완료">stat</th>
+					<th scope="col" style="width:8%;" title="yyyy-mm-dd">date</th>
+					<th scope="col" style="width:15%;">description</th>
+					<th scope="col">note</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr style="border-top:2px solid red">
+					<td class="tit" rowspan="13">이화원 USER</td>
+					<td>인트로</td>
+					<td></td>
+					<td></td>
+					<td class="file">
+						<a target="_blank" href="intro.html">intro.html</a>
+					</td>
+					<td class="stat">●</td>
+					<td class="date"></td>
+					<td class="desc"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>로그인</td>
+					<td></td>
+					<td></td>
+					<td class="file">
+						<a target="_blank" href="login.html">login.html</a>
+					</td>
+					<td class="stat">●</td>
+					<td class="date"></td>
+					<td class="desc"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>이화원 메인</td>
+					<td>추천 메뉴 & 전체 메뉴_tab </td>
+					<td></td>
+					<td class="file">
+						<a target="_blank" href="index.html">index.html</a>
+					</td>
+					<td class="stat">●</td>
+					<td class="date"></td>
+					<td class="desc"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>메뉴 상세화면</td>
+					<td> </td>
+					<td></td>
+					<td class="file">
+						<a target="_blank" href="detail.html">detail.html</a>
+					</td>
+					<td class="stat">●</td>
+					<td class="date"></td>
+					<td class="desc"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>주문표</td>
+					<td></td>
+					<td></td>
+					<td class="file">
+						<a target="_blank" href="orderList.html">orderList.html</a>
+					</td>
+					<td class="stat">●</td>
+					<td class="date"></td>
+					<td class="desc"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>주문결제 _ 회원</td>
+					<td>주소 변경 레이어 포함</td>
+					<td></td>
+					<td class="file">
+						<a target="_blank" href="orderList_member.html">orderList_member.html</a>
+					</td>
+					<td class="stat">●</td>
+					<td class="date"></td>
+					<td class="desc"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>주문결제 _ 비회원</td>
+					<td>회원가입 유도 레이어 포함</td>
+					<td></td>
+					<td class="file">
+						<a target="_blank" href="orderList_non_member.html">orderList_non_member.html</a>
+					</td>
+					<td class="stat">●</td>
+					<td class="date"></td>
+					<td class="desc"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>회원가입</td>
+					<td></td>
+					<td></td>
+					<td class="file">
+						<a target="_blank" href="signin.html">signin.html</a>
+					</td>
+					<td class="stat">●</td>
+					<td class="date"></td>
+					<td class="desc"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>주문완료 _ 회원</td>
+					<td></td>
+					<td></td>
+					<td class="file">
+						<a target="_blank" href="orderHistory.html">orderHistory.html</a>
+					</td>
+					<td class="stat">●</td>
+					<td class="date"></td>
+					<td class="desc"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>지난 주문내역 _ 회원</td>
+					<td></td>
+					<td></td>
+					<td class="file">
+						<a target="_blank" href="orderPreviousHistory.html">orderPreviousHistory.html</a>
+					</td>
+					<td class="stat">●</td>
+					<td class="date"></td>
+					<td class="desc"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>주문완료 _ 비회원</td>
+					<td></td>
+					<td></td>
+					<td class="file">
+						<a target="_blank" href="order_nonHistory.html">order_nonHistory.html</a>
+					</td>
+					<td class="stat">●</td>
+					<td class="date"></td>
+					<td class="desc"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>주문번호 조회 _ 비회원</td>
+					<td></td>
+					<td></td>
+					<td class="file">
+						<a target="_blank" href="non_member_login.html">non_member_login.html</a>
+					</td>
+					<td class="stat">●</td>
+					<td class="date"></td>
+					<td class="desc"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>회원 정보</td>
+					<td>(추후 필요하면 사용)</td>
+					<td></td>
+					<td class="file">
+						<a target="_blank" href="user_info.html">user_info.html</a>
+					</td>
+					<td class="stat">●</td>
+					<td class="date"></td>
+					<td class="desc"></td>
+					<td class="note"></td>
+				</tr>
+				<tr style="border-top:2px solid red">
+					<td class="tit" rowspan="3">관리자</td>
+					<td>관리자 로그인</td>
+					<td></td>
+					<td></td>
+					<td class="file">
+						<a target="_blank" href="manager_login.html">manager_login.html</a>
+					</td>
+					<td class="stat">●</td>
+					<td class="date"></td>
+					<td class="desc"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>관리자 주문 현황 및 처리</td>
+					<td>(추후 내용 및 정리 필요)</td>
+					<td></td>
+					<td class="file">
+						<a target="_blank" href="manager_current_order_status.html">manager_current_order_status.html</a>
+					</td>
+					<td class="stat">●</td>
+					<td class="date"></td>
+					<td class="desc"></td>
+					<td class="note"></td>
+				</tr>
+				<tr>
+					<td>관리자 통계</td>
+					<td>(추후 내용 및 정리 필요)</td>
+					<td></td>
+					<td class="file">
+						<a target="_blank" href="manager_monthly_statistics.html">manager_monthly_statistics.html</a>
+					</td>
+					<td class="stat">●</td>
+					<td class="date"></td>
+					<td class="desc"></td>
+					<td class="note"></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</div>
+</body>
+</html>

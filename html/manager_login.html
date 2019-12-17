@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>Summer Palace Restaurant</title>
+	<link rel="stylesheet" href="../resources/css/common.css">
+	<script src="../resources/js/jquery-3.4.1.min.js"></script>
+	<script src="../resources/js/jquery-ui.js"></script>
+	<script src="../resources/js/style.js"></script>
+</head>
+<body class="mainType">
+<div id="skipNav"><a href="#contents">Go to contents</a></div>
+<article id="summerPalaceWrap">
+
+	<!-- header -->
+	<header id="sp_header" class="manager">
+		<h1>
+			<a href="./manager_login.html">
+				<span class="enTxt">MANAGER</span>
+				<span class="kochiTxt">이화원<em>颐和园</em></span>
+			</a>
+		</h1>
+		<button class="btn_user_menu">right_menu</button>
+	</header>
+
+	<div class="hid_user_menu">
+		<h2>Manager Menu</h2>
+		<button class="btn_menu_close">btn_menu_close</button>
+
+		<ul class="right_menu">
+			<li>
+				<a href="manager_current_order_status.html">Current Order Status</a>
+			</li>
+			<li>
+				<a href="manager_monthly_statistics.html">Monthly Statistics</a>
+			</li>
+		</ul>
+	</div>
+	<!-- // header -->
+
+	<!-- contents -->
+	<section class="else_contents">
+		<h2 class="hidden">else_contents</h2>
+		<article class="else_all">
+			<h3>Manager Login</h3>
+			<dl>
+				<dt>Id</dt>
+				<dd><input type="text" placeholder="ID" /></dd>
+			</dl>
+			<dl>
+				<dt>Password</dt>
+				<dd><input type="password" placeholder="PASSWORD" /></dd>
+			</dl>
+
+			<div class="btn_wrap">
+				<a href="manager_current_order_status.html" class="btn_r_login">Manager Login</a>
+			</div>
+		</article>
+	</section>
+	<!-- //contents -->
+</article>
+</body>
+</html>

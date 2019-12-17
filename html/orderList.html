@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>Summer Palace Restaurant</title>
+	<link rel="stylesheet" href="../resources/css/common.css">
+	<script src="../resources/js/jquery-3.4.1.min.js"></script>
+	<script src="../resources/js/jquery-ui.js"></script>
+	<script src="../resources/js/style.js"></script>
+	<script>
+		$(function(){
+			quantityLength();
+		})
+	</script>
+</head>
+
+<body class="mainType">
+<div id="skipNav"><a href="#contents">Go to contents</a></div>
+<article id="summerPalaceWrap">
+	<!-- go to app -->
+	<div class="goto_App">
+		<p class="txt">Save your order information,<br/><span>you can order immediately</span></p>
+		<p class="btn_right">
+			<a href="#none" class="btn_view_app">View in app</a>
+			<button class="btn_banner_close">banner_close</button>
+		</p>
+	</div>
+	<!-- //go to app -->
+
+	<!-- header -->
+	<header id="sp_header">
+		<button class="btn_back">go to back</button>
+		<h1>
+			<a href="./index.html">
+				<span class="enTxt">SUMMER PALACE</span>
+				<span class="kochiTxt">이화원<em>颐和园</em></span>
+			</a>
+		</h1>
+		<button class="btn_user_menu">left_menu</button>
+	</header>
+
+	<div class="hid_user_menu">
+		<h2>Member Info</h2>
+		<button class="btn_menu_close">btn_menu_close</button>
+
+		<ul class="right_menu">
+			<li>
+				<a href="orderPreviousHistory.html">Order History</a>
+			</li>
+			<li>
+				<a href="user_info.html">Member Info</a>
+			</li>
+		</ul>
+	</div>
+	<!-- // header -->
+
+	<!-- contents -->
+	<section id="contents">
+		<h2>Order list</h2>
+
+		<div class="order_list">
+			<ul>
+				<li>
+					<dl class="menu_name">
+						<dt>
+							짜장면<span>餐点餐点餐点餐点</span>
+						</dt>
+						<dd class="enTxt">
+							JJA JANG MIAN(Sigmature Dish)
+						</dd>
+						<dd>
+							<div class="leng_control">
+								<button class="menu_len_minus">-</button><span class="quantity">1</span><button class="menu_len_add">+</button>
+							</div>
+						</dd>
+						<dd class="menu_info_txt">
+							<span class="size">Medium</span><span class="price">80</span>
+						</dd>
+					</dl>
+					<p class="img">
+						<button class="btn_order_delete">delete</button>
+						<img src="../resources/images/common/@img.png" alt="order img"/>
+					</p>
+				</li>
+				<li>
+					<dl class="menu_name">
+						<dt>
+							짜장면<span>餐点餐点餐点餐点</span>
+						</dt>
+						<dd class="enTxt">
+							Stir-fried noodles with seafood and Chinese bean sauce
+						</dd>
+						<dd>
+							<div class="leng_control">
+								<button class="menu_len_minus">-</button><span class="quantity">1</span><button class="menu_len_add">+</button>
+							</div>
+						</dd>
+						<dd class="menu_info_txt">
+							<span class="size">Medium</span><span class="price">80</span>
+						</dd>
+					</dl>
+					<p class="img">
+						<button class="btn_order_delete">delete</button>
+						<img src="../resources/images/common/@img.png" alt="order img"/>
+					</p>
+				</li>
+			</ul>
+
+			<div class="dip15">
+				<div class="menu_total_box">
+					<dl>
+						<dt>Total order amount</dt>
+						<dd>100</dd>
+					</dl>
+				</div>
+			</div>
+
+		</div>
+
+
+	</section>
+	<!-- //contents -->
+
+	<!-- 1ea : type_01 , 2ea : type_02 -->
+	<div class="btn_bottom_fix type02">
+		<a href="#none" class="btn_tel_order">Menu Add + </a>
+		<a href="#none" class="btn_touch_order">100 Order</a>
+	</div>
+</article>
+</body>
+</html>
